@@ -1,0 +1,32 @@
+> C=with(ndf,table(gender,gend_discm))
+> C
+        gend_discm
+gender   Maybe  No Yes
+  Female    33  60  72
+  Male      43 120 101
+> chisq.test(C)
+
+	Pearson's Chi-squared test
+
+data:  C
+X-squared = 3.5183, df = 2, p-value = 0.1722
+
+
+
+
+
+> C=with(ndf,table(tech,real_app))
+> C
+    real_app
+tech  1  2  3  4  5
+   1 24 15  5  0  6
+   2 18 47 26  6  0
+   3 10 34 81 19  0
+   4  5 12 36 38  7
+   5  1  2 12 13 12
+> chisq.test(C)
+
+	Pearson's Chi-squared test
+
+data:  C
+X-squared = 225.2, df = 16, p-value < 2.2e-16

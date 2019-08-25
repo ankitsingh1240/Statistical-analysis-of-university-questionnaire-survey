@@ -1,0 +1,7 @@
+> boxplot(ndf$drk_wat ~ ndf$gender, data = ndf, range = 0)
+
+> boxplot(nb$drk_wat ~ nb$gender, data = nb, range = 0)
+
+> boxplot(nm$drk_wat ~ nm$gender, data = nm, range = 0)
+
+> boxplot(np$drk_wat ~ np$gender, data = np, range = 0)

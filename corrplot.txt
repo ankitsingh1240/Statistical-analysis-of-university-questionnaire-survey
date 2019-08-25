@@ -1,0 +1,34 @@
+> library(readr)
+> df <- read_csv("data.csv")
+
+> bachelors=df[substr(df$`ENROLLMENT NUMBER`,5,5)=='i',]
+> bachelors=rbind(bachelors,df[substr(df$`ENROLLMENT NUMBER`,5,5)=='I',])
+> bachelors=rbind(bachelors,df[substr(df$`ENROLLMENT NUMBER`,5,5)=='b',])
+> bachelors=rbind(bachelors,df[substr(df$`ENROLLMENT NUMBER`,5,5)=='B',])
+
+> masters=df[substr(df$`ENROLLMENT NUMBER`,5,5)=='m',]
+> masters=rbind(bachelors,df[substr(df$`ENROLLMENT NUMBER`,5,5)=='M',])
+
+> phd=df[substr(df$`ENROLLMENT NUMBER`,5,5)=='p',]
+> phd=rbind(bachelors,df[substr(df$`ENROLLMENT NUMBER`,5,5)=='P',])
+
+> library(corrplot)
+> t=df[,3:19]
+> colnames(t) <- c("food", "hyg_mes", "cln_wash", "drk_wat", "wifi", "sport", "secure", "syllabus", "real_app", "exam", "co_act", "tech", "lvl_int", "avl_out", "lab", "book", "guest_lec")
+> M<-cor(t)
+> corrplot(M, method="number")
+
+> b=bachelors[,3:19]
+> colnames(b) <- c("food", "hyg_mes", "cln_wash", "drk_wat", "wifi", "sport", "secure", "syllabus", "real_app", "exam", "co_act", "tech", "lvl_int", "avl_out", "lab", "book", "guest_lec")
+> Mb<-cor(b)
+> corrplot(Mb, method="number")
+
+> m=masters[,3:19]
+> colnames(m) <- c("food", "hyg_mes", "cln_wash", "drk_wat", "wifi", "sport", "secure", "syllabus", "real_app", "exam", "co_act", "tech", "lvl_int", "avl_out", "lab", "book", "guest_lec")
+> Mm<-cor(m)
+> corrplot(Mm, method="number")
+
+> p=phd[,3:19]
+> colnames(p) <- c("food", "hyg_mes", "cln_wash", "drk_wat", "wifi", "sport", "secure", "syllabus", "real_app", "exam", "co_act", "tech", "lvl_int", "avl_out", "lab", "book", "guest_lec")
+> Mp<-cor(p)
+> corrplot(Mp, method="number")
